@@ -13,7 +13,7 @@ public class TowerBaseSlot : MonoBehaviour {
     public void PlaceWeapon(WeaponData data)
     {
         if (isOccupied) return;
-        currentTower = Instantiate(data.levelPrefabs[0], GetMountPosition(), Quaternion.Euler(-90,0,0));
+        currentTower = Instantiate(data.levelPrefabs[0], GetMountPosition(), Quaternion.Euler(0,270,0));
         isOccupied = true;
     }
 }

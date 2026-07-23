@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class TowerPlace : MonoBehaviour {
@@ -13,7 +14,7 @@ public class TowerPlace : MonoBehaviour {
     }
     public void OnClickGround(InputAction.CallbackContext context)
     {
-        if (!context.performed) return;
+        if (!context.canceled) return;
 
         TryPlaceTower();
     }
@@ -31,6 +32,7 @@ public class TowerPlace : MonoBehaviour {
             if (slot == null) return;
             if (slot.isOccupied) return;
 
+            weaponSelectUI.Show(slot);
         }
 
 

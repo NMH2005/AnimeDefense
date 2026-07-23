@@ -2584,10 +2584,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3580485346549767442}
-  - component: {fileID: 5910662714808961273}
-  - component: {fileID: 5383225315865700823}
   - component: {fileID: -8502547367094567236}
   - component: {fileID: 7475720818132049376}
+  - component: {fileID: 8645303303322695216}
   m_Layer: 0
   m_Name: ninjapr
   m_TagString: Untagged
@@ -2611,60 +2610,6 @@ Transform:
   - {fileID: 8396684965566629972}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &5910662714808961273
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591195624208711933}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Animation: {fileID: -3254638581717504270, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  m_Animations:
-  - {fileID: -3254638581717504270, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -4314690820871303275, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -7414677484744516717, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -7536860302651232604, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: 7914916347215864660, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -7618453613207956141, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -6632812256589859872, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -2202746919634737403, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -4484966311837745597, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -2265758235211723102, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  - {fileID: -1654121497909665603, guid: 88c902c45b66cda48a276c33d0a5e714, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
---- !u!54 &5383225315865700823
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4591195624208711933}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &-8502547367094567236
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2685,7 +2630,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 2.3771236, z: 1}
-  m_Center: {x: 0, y: 1.1751262, z: 0}
+  m_Center: {x: 0, y: 1.1751262, z: 0.4}
 --- !u!95 &7475720818132049376
 Animator:
   serializedVersion: 7
@@ -2708,6 +2653,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8645303303322695216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4591195624208711933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf35b412470eaa48b077048bd68ee35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  speed: 1
 --- !u!1 &4623927625723830659
 GameObject:
   m_ObjectHideFlags: 0

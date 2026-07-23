@@ -817,10 +817,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8946516583593715383}
-  - component: {fileID: 4388459603497232333}
-  - component: {fileID: 8940140296793365337}
   - component: {fileID: -4239640855410325734}
   - component: {fileID: 2097651548639272181}
+  - component: {fileID: -4140023426183630449}
   m_Layer: 0
   m_Name: merchantpr
   m_TagString: Untagged
@@ -844,60 +843,6 @@ Transform:
   - {fileID: 9137031162032367029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &4388459603497232333
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208749815185023394}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_Animation: {fileID: 5931907991555556896, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  m_Animations:
-  - {fileID: 5931907991555556896, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: 57238297535861992, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -4000713335713462437, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -7649448831921157368, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -2029321355198616885, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: 7209999401715169794, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -6382868704155638226, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -4474308293605188896, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -2256489746094177115, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -8823279908763758737, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  - {fileID: -661260281955780034, guid: 45d4fbc937ac548409de6158310da2cf, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
---- !u!54 &8940140296793365337
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1208749815185023394}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &-4239640855410325734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -918,7 +863,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 2.3771236, z: 1}
-  m_Center: {x: 0, y: 1.1751262, z: 0}
+  m_Center: {x: 0, y: 1.1751262, z: 0.4}
 --- !u!95 &2097651548639272181
 Animator:
   serializedVersion: 7
@@ -941,6 +886,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4140023426183630449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208749815185023394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf35b412470eaa48b077048bd68ee35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  speed: 1
 --- !u!1 &1292543086560844649
 GameObject:
   m_ObjectHideFlags: 0

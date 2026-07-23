@@ -974,7 +974,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394ed6afc7600e34eaf7e8b8c20a0947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
-  enemyPrefab: {fileID: 3192323799027236735, guid: 8f4dafd46a7117546869da30e26d0713, type: 3}
+  enemyPrefab:
+  - {fileID: 6202297341503171191, guid: aa7136c66c1d9d042b319d19710f346d, type: 3}
+  - {fileID: 3073551208394611458, guid: 07ea58db29e70964fa97e6fbddb720ed, type: 3}
+  - {fileID: 1208749815185023394, guid: 75120e14f9e23af499066f588a0f7cd2, type: 3}
+  - {fileID: 4591195624208711933, guid: e1a5172258cb2724193fc40fed94bd1d, type: 3}
+  - {fileID: 5235177077522207937, guid: b40afc7fbbf943f46ab36c470a44f2c0, type: 3}
   spawnPos:
   - {fileID: 2023266912}
   - {fileID: 1432351810}

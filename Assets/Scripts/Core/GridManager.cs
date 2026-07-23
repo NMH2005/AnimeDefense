@@ -24,26 +24,17 @@ public class GridManager : MonoBehaviour
                 GridCell cell = new GridCell();
                 cell.col = col;
                 cell.row = row;
-
-                grid[row,col] = cell;
+                cell.worldPosition = new Vector3(col * cellSize, 0, row * cellSize);
+                grid[row, col] = cell;
             }
         }
 
         for (int row = 0; row < height; row++)
         {
-            grid[row,width-1].isPath = true; 
-        }
-
-        for (int row = 0;row < height; row++)
-        {
-            for (int col = 0; col < width; col++)
-            {
-                if (col == width - 1) continue;
-                grid[row,col].canBuild = true;
-            }
+            grid[row, width - 1].canBuild = true;
+            grid[row, width - 1].isPath = true;
         }
     }
-
     void OnDrawGizmos()
     {
         for (int row = 0; row < height; row++)

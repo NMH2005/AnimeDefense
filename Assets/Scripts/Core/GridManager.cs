@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+    [SerializeField] private Transform groundPlane;
+
     public int width = 10;
     public int height = 6;
 
@@ -12,6 +14,28 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         GenerateCell();
+        FitGroundToGrid();
+
+    }
+
+    private void FitGroundToGrid()
+    {
+        if (groundPlane == null) return;
+
+        float worldWidth = width * cellSize;
+        float worldHeight = height * cellSize;
+
+        groundPlane.position = new Vector3(
+            (worldWidth - cellSize) / 2f,
+            groundPlane.position.y,
+            (worldHeight - cellSize) / 2f
+        );
+
+        groundPlane.localScale = new Vector3(
+            worldWidth / 10f,
+            1,
+            worldHeight / 10f
+        );
     }
 
     private void GenerateCell()
@@ -24,7 +48,8 @@ public class GridManager : MonoBehaviour
                 GridCell cell = new GridCell();
                 cell.col = col;
                 cell.row = row;
-                cell.worldPosition = new Vector3(col * cellSize, 0, row * cellSize);
+                cell.worldPosition = transform.position +
+                     new Vector3(col * cellSize, 0, row * cellSize);
                 grid[row, col] = cell;
             }
         }
@@ -41,7 +66,8 @@ public class GridManager : MonoBehaviour
         {
             for (int col = 0; col < width; col++)
             {
-                Vector3 pos = new Vector3(col * cellSize, 0, row * cellSize);
+                Vector3 pos = transform.position +
+              new Vector3(col * cellSize, 0, row * cellSize);
 
                 if (grid != null)
                 {

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1de1dbaaf8c9b4499120a15b6ce27de, type: 3}
+  m_Name: Plasma
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Plasma
+  levelPrefabs:
+  - {fileID: 4492076168584492495, guid: 64989444c957e4c4ea07b282ec99a4ca, type: 3}
+  - {fileID: 4486505449672036427, guid: 5c0cabd1baf78ad488ded461169adad6, type: 3}
+  - {fileID: 6709621320604753705, guid: 8634f5fe443e65b4297fe7c0565936ad, type: 3}
+  baseDamage: 10
+  baseFireRate: 1
+  damageGrowth: 1.3
+  fireRateGrowth: 1.15
+  baseCost: 50
+  costGrowth: 1.5
+  maxLevel: 3

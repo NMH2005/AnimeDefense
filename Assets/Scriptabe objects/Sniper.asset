@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1de1dbaaf8c9b4499120a15b6ce27de, type: 3}
+  m_Name: Sniper
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Sniper
+  levelPrefabs:
+  - {fileID: 6692581002810832990, guid: bd9118aa414dbef45b50ead2b8edaf5b, type: 3}
+  - {fileID: 8143467878785485674, guid: 6e0620cbc6571a04a8e1ce2c9b745236, type: 3}
+  - {fileID: 3635382968860142695, guid: eb1da605c78445b438cbdca311626c43, type: 3}
+  baseDamage: 10
+  baseFireRate: 1
+  damageGrowth: 1.3
+  fireRateGrowth: 1.15
+  baseCost: 50
+  costGrowth: 1.5
+  maxLevel: 3

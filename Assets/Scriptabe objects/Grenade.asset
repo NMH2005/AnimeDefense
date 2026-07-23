@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1de1dbaaf8c9b4499120a15b6ce27de, type: 3}
+  m_Name: Grenade
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  weaponName: Grenade
+  levelPrefabs:
+  - {fileID: 8037694403434623165, guid: 56f9a24c8275ece4798ad988f7b2dd5c, type: 3}
+  - {fileID: 3437620213425821454, guid: af95e4f2357fd8a4eba239fe1d1b8d35, type: 3}
+  - {fileID: 4668065819920043271, guid: 23c3bb158a40233458d1b3f2adc77f57, type: 3}
+  baseDamage: 10
+  baseFireRate: 1
+  damageGrowth: 1.3
+  fireRateGrowth: 1.15
+  baseCost: 50
+  costGrowth: 1.5
+  maxLevel: 3

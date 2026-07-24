@@ -7,6 +7,7 @@ public class TowerPlace : MonoBehaviour {
     [SerializeField] private LayerMask baseLayer;
     [SerializeField] private Camera cam;
     [SerializeField] private WeaponSelectUI weaponSelectUI;
+    [SerializeField] private UpgradeUI upgradeUI;
 
     private void Awake()
     {
@@ -30,9 +31,15 @@ public class TowerPlace : MonoBehaviour {
         {
             TowerBaseSlot slot = hit.collider.GetComponent<TowerBaseSlot>();
             if (slot == null) return;
-            if (slot.isOccupied) return;
+            if (slot.isOccupied)
+            {
+                upgradeUI.Show(slot);
+            }
+            else
+            {
+                weaponSelectUI.Show(slot);
+            }
 
-            weaponSelectUI.Show(slot);
         }
 
 

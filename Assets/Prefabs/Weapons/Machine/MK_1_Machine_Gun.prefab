@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1479176605849324888}
   - component: {fileID: 8461284274170249056}
+  - component: {fileID: 2286535253820586042}
   m_Layer: 0
   m_Name: MK_1_Machine_Gun
   m_TagString: Untagged
@@ -55,6 +56,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2286535253820586042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2223663396318792874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29aa9fd08fa2e5840adba8f74ebd56ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponBase
+  weaponData: {fileID: 11400000, guid: c7923cedd9d212748a71fa8ed6e0b085, type: 2}
 --- !u!1 &2519818959023422878
 GameObject:
   m_ObjectHideFlags: 0

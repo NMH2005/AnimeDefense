@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2857473124809660967}
   - component: {fileID: 4521668395920201551}
-  - component: {fileID: -6929409003559397157}
-  - component: {fileID: 1636020199504702820}
+  - component: {fileID: 79445970924003060}
+  - component: {fileID: 3431452074472792140}
   m_Layer: 0
   m_Name: Plasma
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8801001740599395030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.3, z: 0}
+  m_LocalPosition: {x: 1.5, y: 3.3, z: 0}
   m_LocalScale: {x: 3, y: 0.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 72c5e86cbc4e7ca49b4c38a6cbb23b4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 317508929d376d34ea44a8b4ff90ca23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -93,7 +93,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!65 &-6929409003559397157
+--- !u!114 &79445970924003060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801001740599395030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7afb65ba7045b468d58c8e13e2b977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Plasma
+  maxBeamLength: 15
+  tickInterval: 400
+--- !u!65 &3431452074472792140
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,17 +126,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.3765054, y: 1.1057205, z: 0}
-  m_Center: {x: -1.1677623, y: 0.017810106, z: 0.099999994}
---- !u!114 &1636020199504702820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8801001740599395030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041e9f26d87df954a9171cb11da1295f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  m_Size: {x: 4.3472557, y: 0.7449527, z: 0.2}
+  m_Center: {x: 2.8558917, y: 0.05920825, z: 0}

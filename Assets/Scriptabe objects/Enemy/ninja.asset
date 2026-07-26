@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbdfb90e5cd5624fb830b74ed384972, type: 3}
   m_Name: ninja
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  prefab: {fileID: 0}
-  maxHealth: 100
-  speed: 1
-  value: 50
+  prefab: {fileID: 4591195624208711933, guid: e1a5172258cb2724193fc40fed94bd1d, type: 3}
+  maxHealth: 150
+  speed: 1.5
+  value: 150

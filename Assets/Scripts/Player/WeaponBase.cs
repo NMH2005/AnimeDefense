@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class WeaponBase : MonoBehaviour {
     [SerializeField] private WeaponData weaponData;
@@ -10,7 +11,7 @@ public class WeaponBase : MonoBehaviour {
     private float damage;
     private float fireRate;
     private float fireTimer;
-
+    private GameObject activePlasmaObj;
     public void ApplyStat(WeaponData data, int level)
     {
         weaponData = data;
@@ -21,15 +22,46 @@ public class WeaponBase : MonoBehaviour {
     }
     void Update()
     {
+        Transform target = FindTarget();
+
+        if (weaponData.weaponTyoe == weaponTyoe.Plasma)
+        {
+            HandlePlasma(target);
+            return;
+        }
+
         fireTimer -= Time.deltaTime;
         if (fireTimer <= 0f)
         {
-            Transform target = FindTarget();
             if (target != null)
             {
                 Fire(target);
                 fireTimer = 1f / fireRate;
             }
+        }
+    }
+
+
+    void HandlePlasma(Transform target)
+    {
+        if (target == null)
+        {
+            if (activePlasmaObj != null)
+            {
+                Destroy(activePlasmaObj);
+                activePlasmaObj = null;
+            }
+            return;
+        }
+
+        if (activePlasmaObj == null)
+        {
+                Vector3 dir = target.position - firePoint.position;
+            dir.y = 0f;
+            dir.Normalize();
+
+            activePlasmaObj = Instantiate(weaponData.bulletPrefab, firePoint.position, Quaternion.identity);
+            activePlasmaObj.GetComponent<Plasma>().Init(damage, weaponData.bulletSpeed, dir, target);
         }
     }
 
@@ -69,10 +101,6 @@ public class WeaponBase : MonoBehaviour {
 
             case weaponTyoe.Grenade:
                 obj.GetComponent<Grenade>().Init(damage, weaponData.bulletSpeed, dir, weaponData.grenadeSpinSpeed);
-                break;
-
-            case weaponTyoe.Plasma:
-                obj.GetComponent<Plasma>().Init(damage, weaponData.plasmaDuration, dir);
                 break;
         }
     }

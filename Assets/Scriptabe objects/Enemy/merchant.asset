@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbdfb90e5cd5624fb830b74ed384972, type: 3}
   m_Name: merchant
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  prefab: {fileID: 0}
-  maxHealth: 100
+  prefab: {fileID: 1208749815185023394, guid: 75120e14f9e23af499066f588a0f7cd2, type: 3}
+  maxHealth: 150
   speed: 1
-  value: 50
+  value: 75

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcbdfb90e5cd5624fb830b74ed384972, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  prefab: {fileID: 0}
+  prefab: {fileID: 6202297341503171191, guid: aa7136c66c1d9d042b319d19710f346d, type: 3}
   maxHealth: 100
-  speed: 1
+  speed: 0.8
   value: 50

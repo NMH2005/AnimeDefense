@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {
     protected float speed;
     protected Vector3 direction;
 
-    public virtual void Init(float dmg, float spd, Vector3 dir)
+    public void Init(float dmg, float spd, Vector3 dir)
     {
         damage = dmg;
         speed = spd;

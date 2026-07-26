@@ -3371,12 +3371,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394ed6afc7600e34eaf7e8b8c20a0947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
-  enemyPrefab:
-  - {fileID: 6202297341503171191, guid: aa7136c66c1d9d042b319d19710f346d, type: 3}
-  - {fileID: 3073551208394611458, guid: 07ea58db29e70964fa97e6fbddb720ed, type: 3}
-  - {fileID: 1208749815185023394, guid: 75120e14f9e23af499066f588a0f7cd2, type: 3}
-  - {fileID: 4591195624208711933, guid: e1a5172258cb2724193fc40fed94bd1d, type: 3}
-  - {fileID: 5235177077522207937, guid: b40afc7fbbf943f46ab36c470a44f2c0, type: 3}
+  enemies:
+  - {fileID: 11400000, guid: 6880c0306bc19fd448b59cd9bfc3790f, type: 2}
+  - {fileID: 11400000, guid: d4cca086ae69fd949be6bb826630012f, type: 2}
+  - {fileID: 11400000, guid: 3036ad8fa4268a6488ed75315ad3723e, type: 2}
+  - {fileID: 11400000, guid: 25dbbaebf78077f4abeff58d62a2fa33, type: 2}
+  - {fileID: 11400000, guid: 77d563d9f66a11e438062b5c515c2146, type: 2}
   spawnPos:
   - {fileID: 2023266912}
   - {fileID: 1432351810}

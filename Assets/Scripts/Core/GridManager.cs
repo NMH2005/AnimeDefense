@@ -6,7 +6,7 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField] private Transform groundPlane;
 
-    public int width = 10;
+    public int width = 20;
     public int height = 6;
 
     public float cellSize = 1;
@@ -14,7 +14,7 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         GenerateCell();
-        FitGroundToGrid();
+        //FitGroundToGrid();
 
     }
 

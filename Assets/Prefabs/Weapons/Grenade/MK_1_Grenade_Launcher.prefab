@@ -269,7 +269,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  detectRange: 15
+  detectRange: 10
 --- !u!1 &8195334955930438815
 GameObject:
   m_ObjectHideFlags: 0

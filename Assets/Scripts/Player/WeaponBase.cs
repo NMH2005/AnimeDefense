@@ -12,6 +12,8 @@ public class WeaponBase : MonoBehaviour {
     private float fireRate;
     private float fireTimer;
     private GameObject activePlasmaObj;
+    public Transform CurrentTarget { get; private set; }
+
     public void ApplyStat(WeaponData data, int level)
     {
         weaponData = data;
@@ -23,7 +25,7 @@ public class WeaponBase : MonoBehaviour {
     void Update()
     {
         Transform target = FindTarget();
-
+        CurrentTarget = target;
         if (weaponData.weaponTyoe == weaponTyoe.Plasma)
         {
             HandlePlasma(target);

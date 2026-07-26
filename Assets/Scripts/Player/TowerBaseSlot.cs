@@ -3,8 +3,6 @@ using UnityEngine;
 public class TowerBaseSlot : MonoBehaviour {
     public bool isOccupied;
     [SerializeField] private Transform mountPoint;
-    [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private float detectRange = 15f;
 
     private int currentLvl = 1;
     private WeaponData weaponData;
@@ -27,30 +25,11 @@ public class TowerBaseSlot : MonoBehaviour {
     {
         if (!isOccupied) return;
 
-        Transform target = FindTarget();
+        Transform target = curWeaponBase.CurrentTarget;
         if (target != null)
         {
             RotateMountTowardsTarget(target);
         }
-    }
-
-    Transform FindTarget()
-    {
-        Collider[] hits = Physics.OverlapSphere(GetMountPosition(), detectRange, enemyLayer);
-        Transform closest = null;
-        float closestDist = Mathf.Infinity;
-
-        foreach (var hit in hits)
-        {
-            float dist = Vector3.Distance(GetMountPosition(), hit.transform.position);
-            if (dist < closestDist)
-            {
-                closestDist = dist;
-                closest = hit.transform;
-            }
-        }
-
-        return closest;
     }
 
     void RotateMountTowardsTarget(Transform target)

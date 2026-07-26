@@ -6,7 +6,7 @@ public class GoldUI : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI goldText;
 
-    private void Awake()
+    private void Start()
     {
         goldText.text = GoldManager.Instance.Gold.ToString();
     }

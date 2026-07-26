@@ -7,17 +7,26 @@ public class UpgradeUI : MonoBehaviour
 {
     [SerializeField] private GameObject btnPanel;
     [SerializeField] private Button upgradeBtn;
-    [SerializeField] private TextMeshProUGUI btnText;
+    [SerializeField] private Button sellBtn;
+    [SerializeField] private TextMeshProUGUI upgradeBtnText;
+    [SerializeField] private TextMeshProUGUI sellBtnText;
     private TowerBaseSlot currentSlot;
     private void Awake()
     {
         btnPanel.SetActive(false);
         upgradeBtn.onClick.AddListener(OnUpgradeClicked);
+        sellBtn.onClick.AddListener(OnSellClicked);
     }
 
     private void OnUpgradeClicked()
     {
         currentSlot.TryUpgrade();
+        btnPanel.SetActive(false);
+    }
+
+    private void OnSellClicked()
+    {
+        currentSlot.RemoveWeapon();
         btnPanel.SetActive(false);
     }
 
@@ -27,7 +36,11 @@ public class UpgradeUI : MonoBehaviour
         btnPanel.SetActive(true);
         WeaponData data = slot.GetWeaponData();
         int cost = data.GetUpgradeCost(slot.CurrentLvl);
-        btnText.text = $"UPGRADE\n{cost}";
+        int val = data.GetSellValue(slot.CurrentLvl);
+        upgradeBtnText.text = $"UPGRADE\n{cost}";
+        sellBtnText.text = $"SELL\n{val}";
+
     }
+
 
 }

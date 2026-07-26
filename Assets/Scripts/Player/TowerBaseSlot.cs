@@ -3,8 +3,7 @@ using UnityEngine;
 public class TowerBaseSlot : MonoBehaviour {
     public bool isOccupied ;
     [SerializeField] private Transform mountPoint;
-    [SerializeField] private int gold = 1000;
-    private int currentLvl;   
+    private int currentLvl = 1;   
     private WeaponData weaponData;
     private WeaponBase curWeaponBase;
     private GameObject weapon;
@@ -20,7 +19,7 @@ public class TowerBaseSlot : MonoBehaviour {
     {
         if (!isOccupied) return false;
 
-        return gold >= weaponData.GetUpgradeCost(currentLvl);
+        return GoldManager.Instance.CanAfford(weaponData.GetUpgradeCost(currentLvl));
     }
 
     public Vector3 GetMountPosition()
@@ -29,7 +28,11 @@ public class TowerBaseSlot : MonoBehaviour {
     }
     public void PlaceWeapon(WeaponData data)
     {
+        if (!GoldManager.Instance.CanAfford(data.baseCost)) return;
+
         if (isOccupied) return;
+
+        GoldManager.Instance.Spend(data.baseCost);
         weaponData = data;
         weapon = Instantiate(data.levelPrefabs[0], GetMountPosition(), Quaternion.Euler(0,270,0));
         curWeaponBase = weapon.GetComponent<WeaponBase>();
@@ -45,10 +48,26 @@ public class TowerBaseSlot : MonoBehaviour {
             return;
         }
 
-        Debug.Log("Success upgrade");
+        Debug.Log("Success");
+        GoldManager.Instance.Spend(weaponData.GetUpgradeCost(currentLvl));
+        
         currentLvl++;
         curWeaponBase.ApplyStat(weaponData,currentLvl);
-        Debug.Log(weaponData.GetDamage(currentLvl) + "\n" + weaponData.GetFireRate(currentLvl));
                 
+    }
+
+    public void RemoveWeapon()
+    {
+        if (!isOccupied) return;
+
+        int refund = weaponData.GetSellValue(currentLvl);
+        GoldManager.Instance.Add(refund);
+
+        Destroy(weapon);
+        weapon = null;
+        curWeaponBase = null;
+        weaponData = null;
+        isOccupied = false;
+        currentLvl = 1;
     }
 }

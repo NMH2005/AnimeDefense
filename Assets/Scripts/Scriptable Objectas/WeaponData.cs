@@ -19,5 +19,7 @@ public class WeaponData : ScriptableObject {
     public float GetDamage(int level) => baseDamage * Mathf.Pow(damageGrowth, level - 1);
     public float GetFireRate(int level) => baseFireRate * Mathf.Pow(fireRateGrowth, level - 1);
     public int GetUpgradeCost(int currentLevel) => Mathf.RoundToInt(baseCost * Mathf.Pow(costGrowth, currentLevel - 1));
+
+    public int GetSellValue(int lvl) => Mathf.RoundToInt(baseCost * lvl * 0.2f);
     public GameObject GetPrefab(int level) => levelPrefabs[Mathf.Clamp(level - 1, 0, levelPrefabs.Length - 1)];
 }

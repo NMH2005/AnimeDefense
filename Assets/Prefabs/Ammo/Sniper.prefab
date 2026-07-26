@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3115116015545373037}
   - component: {fileID: 4567753822783922838}
-  - component: {fileID: 8057832088682377785}
   - component: {fileID: 4030551191295945644}
+  - component: {fileID: 8969943332154957411}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -93,18 +93,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &8057832088682377785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715190588278735285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d811f7504d34cf14fbe0d43bb61178e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletBillboard
 --- !u!65 &4030551191295945644
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,3 +114,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.6573687, y: 1.0072694, z: 0}
   m_Center: {x: -0.0537858, y: 0.02759111, z: -0.06340301}
+--- !u!114 &8969943332154957411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3715190588278735285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 041e9f26d87df954a9171cb11da1295f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Bullet

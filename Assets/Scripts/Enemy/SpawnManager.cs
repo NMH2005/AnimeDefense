@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
-    [SerializeField] private GameObject[] enemyPrefab;
+    [SerializeField] private EnemyData[] enemies;
     [SerializeField] private Transform[] spawnPos;
     [SerializeField] private float spawnInterval = 1f;
     [SerializeField] private Transform[] targets;
@@ -21,9 +21,9 @@ public class SpawnManager : MonoBehaviour {
     private void SpawnEnemy()
     {
         int lane = Random.Range(0, spawnPos.Length);
-        int randomEnemy = Random.Range(0, enemyPrefab.Length);
+        int randomEnemy = Random.Range(0, enemies.Length);
 
-        GameObject enemy = Instantiate(enemyPrefab[randomEnemy], spawnPos[lane].position, Quaternion.Euler(0, 90, 0));
-        enemy.GetComponent<EnemyController>().Initialize(targets[lane]);
+        GameObject enemy = Instantiate(enemies[randomEnemy].prefab, spawnPos[lane].position, Quaternion.Euler(0, 90, 0));
+        enemy.GetComponent<EnemyController>().Initialize(targets[lane], enemies[randomEnemy].speed, enemies[randomEnemy].maxHealth, enemies[randomEnemy].value);
     }
 }

@@ -4,15 +4,16 @@ using UnityEngine;
 public class Grenade : Bullet {
 
     float spinSpeed;
-    public void Init(float damage, float bulletSpeed, float grenadeSpinSpeed)
+
+    public void Init(float dmg, float spd, Vector3 dir, float spin)
     {
-        base.Init(damage,bulletSpeed);
-        spinSpeed = grenadeSpinSpeed;
+        base.Init(dmg, spd, dir);
+        spinSpeed = spin;
     }
 
     protected override void Update()
     {
-        base .Update();
+        base.Update();
         transform.Rotate(Vector3.right, spinSpeed * Time.deltaTime, Space.Self);
     }
 

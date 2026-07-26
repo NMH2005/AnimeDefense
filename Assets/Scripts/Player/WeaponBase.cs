@@ -1,11 +1,12 @@
-using System;
 using UnityEngine;
 
 public class WeaponBase : MonoBehaviour {
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private Transform firePoint;
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private float detectRange = 10f;
+    [SerializeField] private float detectRange = 15f;
+
+    private int currentLevel = 1;
     private float damage;
     private float fireRate;
     private float fireTimer;
@@ -13,15 +14,15 @@ public class WeaponBase : MonoBehaviour {
     public void ApplyStat(WeaponData data, int level)
     {
         weaponData = data;
+        currentLevel = level;
         damage = data.GetDamage(level);
         fireRate = data.GetFireRate(level);
+        fireTimer = 1f / fireRate;
     }
-
-    private void Update()
+    void Update()
     {
         fireTimer -= Time.deltaTime;
-
-        if (fireTimer <= 0)
+        if (fireTimer <= 0f)
         {
             Transform target = FindTarget();
             if (target != null)
@@ -32,52 +33,47 @@ public class WeaponBase : MonoBehaviour {
         }
     }
 
-
-
-    private Transform FindTarget()
+    Transform FindTarget()
     {
         Collider[] hits = Physics.OverlapSphere(firePoint.position, detectRange, enemyLayer);
-        Transform closetEnemy = null;
-        float closetDis = Mathf.Infinity;
+        Transform closest = null;
+        float closestDist = Mathf.Infinity;
 
         foreach (var hit in hits)
         {
-            float dis = Vector3.Distance(firePoint.position, hit.transform.position);
-            if (dis < closetDis)
+            float dist = Vector3.Distance(firePoint.position, hit.transform.position);
+            if (dist < closestDist)
             {
-                closetDis = dis;
-                closetEnemy = hit.transform;
+                closestDist = dist;
+                closest = hit.transform;
             }
         }
 
-        return closetEnemy;
+        return closest;
     }
 
-    private void Fire(Transform target)
+    void Fire(Transform target)
     {
-        Vector3 dir = (target.position - firePoint.position).normalized;
+        Vector3 dir = target.position - firePoint.position;
+        dir.y = 0f;
+        dir.Normalize();
 
-        GameObject ammoObj = Instantiate(weaponData.bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject obj = Instantiate(weaponData.bulletPrefab, firePoint.position, Quaternion.identity);
 
-        switch(weaponData.weaponTyoe)
+        switch (weaponData.weaponTyoe)
         {
             case weaponTyoe.Gatling:
             case weaponTyoe.Sniper:
-                ammoObj.GetComponent<Bullet>().Init(damage, weaponData.bulletSpeed);
+                obj.GetComponent<Bullet>().Init(damage, weaponData.bulletSpeed, dir);
                 break;
+
             case weaponTyoe.Grenade:
-                ammoObj.GetComponent<Grenade>().Init(damage, weaponData.bulletSpeed, weaponData.grenadeSpinSpeed);
+                obj.GetComponent<Grenade>().Init(damage, weaponData.bulletSpeed, dir, weaponData.grenadeSpinSpeed);
                 break;
+
             case weaponTyoe.Plasma:
-                ammoObj.GetComponent<Plasma>().Init(damage, weaponData.plasmaDuration);
+                obj.GetComponent<Plasma>().Init(damage, weaponData.plasmaDuration, dir);
                 break;
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        if (firePoint != null)
-            Gizmos.DrawWireSphere(firePoint.position, detectRange);
     }
 }

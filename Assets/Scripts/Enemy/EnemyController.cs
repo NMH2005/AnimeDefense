@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float speed = 3f;
     private Transform target;
-    private Animator animator;
+    private float speed;
+    private float maxHealth;
+    private int value;
     private float currentHealth;
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
 
-    public void Initialize(Transform target)
+    public void Initialize(Transform target, float spd, float maxHealth, int val )
     {
         this.target = target;
+        this.speed = spd;
+        this.maxHealth = maxHealth;
+        this.value = val;
+        this.currentHealth = maxHealth;
     }
 
     private void Update()
@@ -38,6 +39,7 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Die()
     {
+        GoldManager.Instance.Add(value);
         Destroy(gameObject);
     }
 }

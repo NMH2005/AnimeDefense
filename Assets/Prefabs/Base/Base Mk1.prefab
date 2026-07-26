@@ -180,6 +180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerBaseSlot
   isOccupied: 0
   mountPoint: {fileID: 187978397096987602}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  detectRange: 15
 --- !u!65 &8558724850369239859
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -6,11 +6,13 @@ public class GoldUI : MonoBehaviour
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI goldText;
 
-   private void OnEnable()
+    private void Awake()
+    {
+        goldText.text = GoldManager.Instance.Gold.ToString();
+    }
+    private void OnEnable()
     {
         EventManager.OnGoldChanged += HandleGoldChanged;
-        if (GoldManager.Instance != null)
-            HandleGoldChanged(GoldManager.Instance.Gold);
     }
 
     private void OnDisable()

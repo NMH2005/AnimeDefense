@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: Machine
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Gatling
+  weaponTyoe: 0
   levelPrefabs:
   - {fileID: 2223663396318792874, guid: 8adb278af6c709649816056898937939, type: 3}
   - {fileID: 598017014663525083, guid: fbef86497bb08a84eaca413a9e096e14, type: 3}
   - {fileID: 9071779256476104848, guid: 56cefcb3fc20d0346aab8eefd9431d1c, type: 3}
+  bulletPrefab: {fileID: 945255730882489613, guid: 0502b20584ef52f4b9fffaaaa7562e87, type: 3}
+  bulletSpeed: 20
   baseDamage: 10
   baseFireRate: 1
   damageGrowth: 1.3
   fireRateGrowth: 1.15
   baseCost: 50
   costGrowth: 1.5
+  plasmaDuration: 0.3
+  grenadeSpinSpeed: 720
   maxLevel: 3

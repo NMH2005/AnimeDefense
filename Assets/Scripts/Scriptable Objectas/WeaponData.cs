@@ -1,10 +1,15 @@
 using UnityEngine;
 
+public enum weaponTyoe  { Gatling, Grenade, Plasma, Sniper}
+
 [CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/WeaponData")]
 public class WeaponData : ScriptableObject {
     public string weaponName;
+    public weaponTyoe weaponTyoe;
     public GameObject[] levelPrefabs = new GameObject[3];
+    public GameObject bulletPrefab;
 
+    public float bulletSpeed = 20f;
     public float baseDamage = 10f;
     public float baseFireRate = 1f;
 
@@ -13,6 +18,9 @@ public class WeaponData : ScriptableObject {
 
     public int baseCost = 50;
     public float costGrowth = 1.5f;
+
+    public float plasmaDuration = 0.3f;
+    public float grenadeSpinSpeed = 720f;
 
     public int maxLevel = 3;
 

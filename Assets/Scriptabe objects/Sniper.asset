@@ -13,14 +13,19 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Sniper
+  weaponTyoe: 0
   levelPrefabs:
   - {fileID: 6692581002810832990, guid: bd9118aa414dbef45b50ead2b8edaf5b, type: 3}
   - {fileID: 8143467878785485674, guid: 6e0620cbc6571a04a8e1ce2c9b745236, type: 3}
   - {fileID: 3635382968860142695, guid: eb1da605c78445b438cbdca311626c43, type: 3}
+  bulletPrefab: {fileID: 3715190588278735285, guid: 1f6e6ef8ae7098842b18fe38e10e09b1, type: 3}
+  bulletSpeed: 20
   baseDamage: 10
   baseFireRate: 1
   damageGrowth: 1.3
   fireRateGrowth: 1.15
   baseCost: 50
   costGrowth: 1.5
+  plasmaDuration: 0.3
+  grenadeSpinSpeed: 720
   maxLevel: 3

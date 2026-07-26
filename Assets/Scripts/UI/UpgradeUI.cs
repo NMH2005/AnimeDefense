@@ -42,5 +42,14 @@ public class UpgradeUI : MonoBehaviour
 
     }
 
+    public void Hide()
+    {
+        if (btnPanel.activeInHierarchy) 
+        {
+            btnPanel.SetActive(false);
+            currentSlot = null;
+        }
+    }
+
 
 }

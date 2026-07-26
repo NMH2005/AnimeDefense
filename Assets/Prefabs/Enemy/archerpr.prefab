@@ -3259,7 +3259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf35b412470eaa48b077048bd68ee35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 7189081185770867294}
 --- !u!54 &3171482988031498074
 Rigidbody:
   m_ObjectHideFlags: 0

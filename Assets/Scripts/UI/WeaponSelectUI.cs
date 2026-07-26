@@ -13,6 +13,8 @@ public class WeaponSelectUI : MonoBehaviour {
     [SerializeField] private WeaponData[] weapons;
     [SerializeField] private Camera cam;
     [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject overlay;
+    [SerializeField] private Button overlayButton;
     private TowerBaseSlot targetSlot;
     private Animator animator;
 
@@ -21,6 +23,11 @@ public class WeaponSelectUI : MonoBehaviour {
         animator = panel.GetComponent<Animator>();
         if (cam == null) cam = Camera.main;
         panel.SetActive(false);
+
+        if (overlay != null) overlay.SetActive(false);
+        if (overlayButton != null)
+            overlayButton.onClick.AddListener(OnOverlayClicked);
+
         for (int i = 0; i < weaponBtns.Length; i++)
         {
             WeaponData weapon = weapons[i];
@@ -38,13 +45,21 @@ public class WeaponSelectUI : MonoBehaviour {
         panelRoot.position = screenPos;
 
         panel.SetActive(true);
-
+        if (overlay != null) overlay.SetActive(true);
         animator.Rebind();
         animator.Update(0);
 
 
         animator.Play("Show", 0, 0f);
 
+    }
+
+    public void Hide()
+    {
+        if (panel.activeInHierarchy) 
+        {
+            StartCoroutine(HidePanel());
+        }
     }
 
     private void OnWeaponChosen(WeaponData data)
@@ -54,6 +69,12 @@ public class WeaponSelectUI : MonoBehaviour {
         StartCoroutine(HidePanel());
     }
 
+
+    private void OnOverlayClicked()
+    {
+        Hide();
+    }
+
     private IEnumerator HidePanel()
     {
         animator.Play("Hide", 0, 0f);
@@ -61,5 +82,8 @@ public class WeaponSelectUI : MonoBehaviour {
         yield return new WaitForSeconds(0.15f);
 
         panel.SetActive(false);
+        if (overlay != null) overlay.SetActive(false);
     }
+
+
 }

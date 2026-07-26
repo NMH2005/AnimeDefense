@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Grenade : Bullet {
 
+    [SerializeField] private float explosionRadius = 3f;
+    [SerializeField] private LayerMask enemyLayer;
+
     float spinSpeed;
 
     public void Init(float dmg, float spd, Vector3 dir, float spin)
@@ -19,7 +22,20 @@ public class Grenade : Bullet {
 
     protected override void OnHit()
     {
+        Explode();
         Destroy(gameObject);
+    }
+
+    private void Explode()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, explosionRadius, enemyLayer);
+        foreach (var hit in hits)
+        {
+            if(hit.TryGetComponent<IDamageable>(out var target))
+            {
+                target.TakeDamage(damage);
+            }
+        }
     }
 }
 

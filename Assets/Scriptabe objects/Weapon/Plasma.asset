@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 6709621320604753705, guid: 8634f5fe443e65b4297fe7c0565936ad, type: 3}
   bulletPrefab: {fileID: 8801001740599395030, guid: e004296ef2c49284594c8371322cb46e, type: 3}
   bulletSpeed: 20
-  baseDamage: 0.4
+  baseDamage: 0.5
   baseFireRate: 1
   damageGrowth: 1.3
   fireRateGrowth: 1.15

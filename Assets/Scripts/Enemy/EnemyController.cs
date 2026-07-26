@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private EnemyHealthBar healthBar;
+
     private Transform target;
     private float speed;
     private float maxHealth;
@@ -16,6 +18,8 @@ public class EnemyController : MonoBehaviour, IDamageable
         this.maxHealth = maxHealth;
         this.value = val;
         this.currentHealth = maxHealth;
+        if (healthBar != null)
+            healthBar.SetHealth(currentHealth, maxHealth);
     }
 
     private void Update()
@@ -31,6 +35,10 @@ public class EnemyController : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+
+        if (healthBar != null)
+            healthBar.SetHealth(currentHealth, maxHealth);
+
         if (currentHealth <= 0)
         {
             Die();

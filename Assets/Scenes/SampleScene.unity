@@ -1666,6 +1666,7 @@ GameObject:
   - component: {fileID: 698993486}
   - component: {fileID: 698993488}
   - component: {fileID: 698993489}
+  - component: {fileID: 698993490}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1745,6 +1746,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GoldUI
   panel: {fileID: 1364710295}
   goldText: {fileID: 58665248}
+--- !u!114 &698993490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698993485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59700ff47637abf42ad0b7a5e0da2f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
+  fillImage: {fileID: 0}
+  healthBarRoot: {fileID: 0}
 --- !u!1 &786146678
 GameObject:
   m_ObjectHideFlags: 0

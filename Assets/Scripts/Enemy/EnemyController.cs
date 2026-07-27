@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour, IDamageable
 {
     [SerializeField] private EnemyHealthBar healthBar;
-
+    [SerializeField] private float reachDistance = 0.2f;
     private Transform target;
     private float speed;
     private float maxHealth;
@@ -25,6 +25,17 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void Update()
     {
         MoveForward();
+        CheckReachTarget();
+    }
+
+    private void CheckReachTarget()
+    {
+        float dist = Vector3.Distance(transform.position, target.position);
+        if (dist <= reachDistance)
+        {
+            GameManager.Instance.GameOver();
+            Destroy(gameObject);
+        }
     }
 
     private void MoveForward()

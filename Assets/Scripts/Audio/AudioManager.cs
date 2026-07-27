@@ -5,6 +5,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource sfxSrc;
     public static AudioManager Instance;
     private float sfxVolume = 1f;
+    private bool sfxMuted = false;
+
     private void Awake()
     {
         Instance = this;
@@ -21,4 +23,12 @@ public class AudioManager : MonoBehaviour
     {
         sfxVolume = Mathf.Clamp01(volume);
     }
+
+    public void ToggleSFXMute()
+    {
+        sfxMuted = !sfxMuted;
+        sfxSrc.mute = sfxMuted;
+    }
+
+    public bool IsSFXMuted() => sfxMuted;
 }

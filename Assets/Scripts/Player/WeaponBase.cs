@@ -64,6 +64,11 @@ public class WeaponBase : MonoBehaviour {
 
             activePlasmaObj = Instantiate(weaponData.bulletPrefab, firePoint.position, Quaternion.identity);
             activePlasmaObj.GetComponent<Plasma>().Init(damage, weaponData.bulletSpeed, dir, target);
+
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(weaponData.fireSFX);
+            }
         }
     }
 
@@ -93,6 +98,11 @@ public class WeaponBase : MonoBehaviour {
         dir.Normalize();
 
         GameObject obj = Instantiate(weaponData.bulletPrefab, firePoint.position, Quaternion.identity);
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX(weaponData.fireSFX);
+        }
 
         switch (weaponData.weaponTyoe)
         {

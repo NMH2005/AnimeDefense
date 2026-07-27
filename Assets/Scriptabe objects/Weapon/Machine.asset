@@ -19,6 +19,7 @@ MonoBehaviour:
   - {fileID: 598017014663525083, guid: fbef86497bb08a84eaca413a9e096e14, type: 3}
   - {fileID: 9071779256476104848, guid: 56cefcb3fc20d0346aab8eefd9431d1c, type: 3}
   bulletPrefab: {fileID: 945255730882489613, guid: 0502b20584ef52f4b9fffaaaa7562e87, type: 3}
+  fireSFX: {fileID: 8300000, guid: c7135b8fe5b281f45886aa907df47cf5, type: 3}
   bulletSpeed: 5
   baseDamage: 10
   baseFireRate: 1

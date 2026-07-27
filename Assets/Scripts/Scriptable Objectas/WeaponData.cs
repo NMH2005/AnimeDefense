@@ -8,7 +8,7 @@ public class WeaponData : ScriptableObject {
     public weaponTyoe weaponTyoe;
     public GameObject[] levelPrefabs = new GameObject[3];
     public GameObject bulletPrefab;
-
+    public AudioClip fireSFX;
     public float bulletSpeed = 20f;
     public float baseDamage = 10f;
     public float baseFireRate = 1f;

@@ -4,6 +4,7 @@ public class Bullet : MonoBehaviour {
     protected float damage;
     protected float speed;
     protected Vector3 direction;
+    [SerializeField] protected float lifeTime = 10f;
 
     public void Init(float dmg, float spd, Vector3 dir)
     {
@@ -16,7 +17,10 @@ public class Bullet : MonoBehaviour {
         float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         transform.rotation = faceCam * Quaternion.Euler(90f,angle ,0f);
 
-        Destroy(gameObject, 10f);
+        if (lifeTime > 0f)
+        {
+            Destroy(gameObject, lifeTime);
+        }
     }
 
     protected virtual void Update()
@@ -28,9 +32,14 @@ public class Bullet : MonoBehaviour {
     {
         if (other.TryGetComponent<IDamageable>(out var target))
         {
-                target.TakeDamage(damage);
-                OnHit();
+            HandleTriggerHit(target);
         }
+    }
+
+    protected virtual void HandleTriggerHit(IDamageable target)
+    {
+        target.TakeDamage(damage);
+        OnHit();
     }
 
     protected virtual void OnHit() => Destroy(gameObject);

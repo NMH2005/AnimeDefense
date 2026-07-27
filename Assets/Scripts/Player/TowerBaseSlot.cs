@@ -3,7 +3,7 @@ using UnityEngine;
 public class TowerBaseSlot : MonoBehaviour {
     public bool isOccupied;
     [SerializeField] private Transform mountPoint;
-
+    [SerializeField] private AudioClip chooseSfx;
     private int currentLvl = 1;
     private WeaponData weaponData;
     private WeaponBase curWeaponBase;
@@ -45,6 +45,7 @@ public class TowerBaseSlot : MonoBehaviour {
     {
         if (!GoldManager.Instance.CanAfford(data.baseCost)) return;
         if (isOccupied) return;
+        AudioManager.Instance.PlaySFX(chooseSfx);
 
         GoldManager.Instance.Spend(data.baseCost);
         weaponData = data;

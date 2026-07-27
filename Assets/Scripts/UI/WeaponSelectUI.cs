@@ -15,6 +15,7 @@ public class WeaponSelectUI : MonoBehaviour {
     [SerializeField] private Canvas canvas;
     [SerializeField] private GameObject overlay;
     [SerializeField] private Button overlayButton;
+
     private TowerBaseSlot targetSlot;
     private Animator animator;
 
@@ -65,7 +66,6 @@ public class WeaponSelectUI : MonoBehaviour {
     private void OnWeaponChosen(WeaponData data)
     {
         targetSlot.PlaceWeapon(data);
-
         StartCoroutine(HidePanel());
     }
 

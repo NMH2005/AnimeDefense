@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 public class Plasma : Bullet {
     [SerializeField] private float maxBeamLength = 15f;
-
+    [SerializeField] private LayerMask enemyLayer;
     private float damagePerTick;
     [SerializeField] private float tickInterval = 400f;
     private float tickTimer;
@@ -31,7 +32,7 @@ public class Plasma : Bullet {
         direction = (target.position - transform.position);
         direction.y = 0f;
         direction.Normalize();
-
+        UpdateRotation();
         UpdateBeamVisual();
 
         tickTimer -= Time.deltaTime;
@@ -42,11 +43,23 @@ public class Plasma : Bullet {
         }
     }
 
+    void UpdateRotation()
+    {
+        Quaternion faceCam = Camera.main.transform.rotation * Quaternion.Euler(90, 0, 0);
+        float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = faceCam * Quaternion.Euler(90f, angle, 0f);
+    }
+    protected override void HandleTriggerHit(IDamageable target)
+    {
+
+    }
+
+
     void UpdateBeamVisual()
     {
         float hitDistance = maxBeamLength;
 
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, maxBeamLength))
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, maxBeamLength, enemyLayer))
         {
             hitDistance = hit.distance;
         }

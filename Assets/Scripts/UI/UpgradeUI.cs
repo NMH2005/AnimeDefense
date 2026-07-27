@@ -10,6 +10,7 @@ public class UpgradeUI : MonoBehaviour
     [SerializeField] private Button sellBtn;
     [SerializeField] private TextMeshProUGUI upgradeBtnText;
     [SerializeField] private TextMeshProUGUI sellBtnText;
+    [SerializeField] private AudioClip upgradeSFX;
     private TowerBaseSlot currentSlot;
     private void Awake()
     {
@@ -20,7 +21,14 @@ public class UpgradeUI : MonoBehaviour
 
     private void OnUpgradeClicked()
     {
+        bool success = currentSlot.CanUpgrade();
+
         currentSlot.TryUpgrade();
+
+        if (success)
+        {
+            AudioManager.Instance.PlaySFX(upgradeSFX);
+        }
         btnPanel.SetActive(false);
     }
 

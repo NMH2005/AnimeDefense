@@ -105,8 +105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7afb65ba7045b468d58c8e13e2b977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plasma
+  lifeTime: 10
   maxBeamLength: 15
-  tickInterval: 400
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  tickInterval: 0.5
 --- !u!65 &3431452074472792140
 BoxCollider:
   m_ObjectHideFlags: 0
